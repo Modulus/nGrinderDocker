@@ -1,0 +1,22 @@
+controller:
+  image: ngrinder/controller:3.4
+  ports:
+    - "80:80"
+    - "16001:16001"
+    - "12000-12009:12000-12009"
+
+agent1:
+  image: ngrinder/agent
+  links:
+    - controller:controller
+
+agent2:
+  image: ngrinder/agent
+  links:
+    - controller:controller
+
+
+agent3:
+  image: ngrinder/agent
+  links:
+    - controller:controller
